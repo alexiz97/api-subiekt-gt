@@ -133,6 +133,12 @@ class Product extends SubiektObj{
 
 		 return $data;
 	}
+	
+	public function getProductsList(){
+		$sql = "SELECT * FROM vwTowar";				
+		$data = MSSql::getInstance()->query($sql);
+		return $data[0];
+	}
 
 	public function getListByStore(){
 		$sql = "SELECT tw_Symbol as code ,Rezerwacja as reservation,Dostepne as available, Stan as on_store,  st_MagId as id_store FROM vwTowar WHERE st_MagId = ".intval($this->id_store);
